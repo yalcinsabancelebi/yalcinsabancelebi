@@ -1,10 +1,6 @@
 <h1 align="center">Hi 👋, I'm yaclinsabancelebi</h1>
 <h3 align="center">A passionate Data Science and Backend developer from Türkiye</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=yalcinsabancelebi&label=Profile%20views&color=0e75b6&style=flat" alt="yalcinsabancelebi" /> </p>
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=yalcinsabancelebi" alt="yalcinsabancelebi" /></a> </p>
-
 - 🌱 I’m currently learning **Devops Backend Development / Ai and Python**
 
 - 👨‍💻 All of my projects are available at [yalcinsabancelebi.github.io](yalcinsabancelebi.github.io)
