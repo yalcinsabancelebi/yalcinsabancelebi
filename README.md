@@ -4,13 +4,13 @@
 
 - 🌱 I’m currently learning **Devops Backend Development / Ai and Python**
 
-- 👨‍💻 All of my projects are available at [yalcinsabancelebi.github.io](yalcinsabancelebi.github.io)
+- 👨‍💻 All of my projects are available at [yalcinsabancelebi.github.io]<a href="yalcinsabancelebi.github.io" target="blank"></a>
 
 - 💬 Ask me about **Machine Learning, Python and Ai**
 
 - 📫 How to reach me **yalcinsabancelebi@gmail.com**
 
-- 📄 Know about my experiences [yalcinsabancelebi.github.io/resume](yalcinsabancelebi.github.io/resume)
+- 📄 Know about my experiences in [yalcinsabancelebi.github.io]<a href="(https://yalcinsabancelebi.github.io/EN-CV%20-%20Yal%C3%A7%C4%B1n%20%C5%9Eaban%C3%A7elebi.pdf)" target="blank"></a>
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
