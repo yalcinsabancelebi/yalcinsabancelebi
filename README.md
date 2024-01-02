@@ -4,7 +4,7 @@
 
 - 🌱 I’m currently learning **Devops Backend Development / Ai and Python**
 
-- 👨‍💻 All of my projects are available at <a href="https://yalcinsabancelebi.github.io/EN-CV%20-%20Yal%C3%A7%C4%B1n%20%C5%9Eaban%C3%A7elebi.pdf">yalcinsabancelebi.github.io</a>
+- 👨‍💻 All of my projects are available at <a href="https://yalcinsabancelebi.github.io">yalcinsabancelebi.github.io</a>
 
 - 💬 Ask me about **Machine Learning, Python and Ai**
 
