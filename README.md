@@ -1,373 +1,223 @@
-<div align="center">
-
-<sub><samp>UNINDEXED / PUBLIC FRAGMENT / 0x00</samp></sub>
-
-<br /><br />
-
-# someone left the signal on.
-
-<sub><code>y4lc1ns4b4nc3l3b1</code></sub>
-
-<br />
-
-**There is more here than the first screen admits.**
-
-<br /><br />
-
-[enter the archive](#the-archive) · [take the shortcut](#the-shortcut) · [leave a trace](#the-return-address)
-
-<br /><br />
-
-<sub>This is an interactive text archive. Nothing is tracking your visit.</sub>
-
+<div align="right">
+<sub><code>yalcinsabancelebi</code></sub>
 </div>
 
----
+<br />
 
-## the threshold
-
-You found a public surface.
-
-Most of it is closed. All of it can be opened.
-
-There is no timer, no account to unlock, and no correct order. Follow a label. Open a record. Decide how far down you want to go.
-
-<details>
-<summary><kbd>OPEN / arrival note</kbd></summary>
+# build.<br />understand.<br />repeat.
 
 <br />
+
+Software, systems, and the details in between.
+
+<a href="https://github.com/yalcinsabancelebi?tab=repositories">repositories ↗</a>&nbsp;&nbsp; / &nbsp;&nbsp;<a href="https://www.linkedin.com/in/yalcinsabancelebi">contact ↗</a>
+
+<br />
+
+---
+
+<sub>[01 / perspective](#01--perspective)&nbsp;&nbsp;&nbsp; [02 / working-notes](#02--working-notes)&nbsp;&nbsp;&nbsp; [03 / questions](#03--questions)&nbsp;&nbsp;&nbsp; [04 / elsewhere](#04--elsewhere)</sub>
+
+<br />
+
+## 01 / perspective
+
+I'm interested in how things work, especially when the first explanation isn't quite enough.
+
+Most of what I enjoy building involves data, behaviour, and the space between components. I like clear interfaces, explicit trade-offs, and being able to explain why something works.
+
+<br />
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+<sub>DESIGN</sub>
+
+### fewer moving parts.
+
+Small interfaces. Visible assumptions. Room to change your mind.
+
+</td>
+<td width="50%" valign="top">
+
+<sub>IMPLEMENTATION</sub>
+
+### more attention to them.
+
+State transitions. Failure paths. The second attempt.
+
+</td>
+</tr>
+</table>
+
+<br />
+
+## 02 / working notes
+
+A few questions I like to keep close to the code.
+
+<details>
+<summary><b>01</b>&nbsp; / &nbsp;What happens twice?</summary>
+
+<br />
+
+A request succeeds. The response disappears. The client retries.
+
+The interesting part is deciding what “again” should mean.
+
+| Question | Design consequence |
+| :--- | :--- |
+| Can the operation be repeated safely? | Define idempotency at the right boundary. |
+| Can two attempts overlap? | Make ownership and concurrency explicit. |
+| Can an old result arrive late? | Decide how ordering and stale state are handled. |
+
+A retry is part of the operation's design.
+
+<br />
+
+</details>
+
+<details>
+<summary><b>02</b>&nbsp; / &nbsp;Who owns the truth?</summary>
+
+<br />
+
+A value in a database, a cached copy, and a number on a screen can all disagree for a while.
+
+Before choosing how to synchronize them, it helps to decide:
+
+- which component owns the state;
+- which copies are derived;
+- how old a copy is allowed to be;
+- what a reader should do when freshness is unknown.
+
+Naming the owner usually makes the rest of the conversation clearer.
+
+<br />
+
+</details>
+
+<details>
+<summary><b>03</b>&nbsp; / &nbsp;What survives a disconnect?</summary>
+
+<br />
+
+Reconnecting a transport is only one step.
+
+The application still needs to establish what was received, what was missed, and whether the previous state is useful.
 
 ```text
-record.kind     = personal fragment
-record.owner    = yalcinsabancelebi
-record.contents = deliberately incomplete
+connection restored
+    ≠
+application state restored
 ```
 
-A name tells you where to look.
+That distinction can shape the protocol, the storage model, and the user experience.
 
-What someone leaves behind tells you more.
-
-[Continue to the archive ↓](#the-archive)
+<br />
 
 </details>
 
-<br />
-
-## the archive
-
-| Record | Inscription | Entry |
-| :--- | :--- | :--- |
-| `0x01` | The surface | [inspect](#01--the-surface) |
-| `0x02` | The mechanism | [inspect](#02--the-mechanism) |
-| `0x03` | The missing page | [inspect](#03--the-missing-page) |
-| `0x04` | The echo | [inspect](#04--the-echo) |
-| `0x05` | The passenger | [inspect](#05--the-passenger) |
-| `0x06` | The loose thread | [inspect](#06--the-loose-thread) |
-
-<sub>Each entry opens independently. The archive does not remember which ones you read.</sub>
-
----
-
-## 01 / the surface
-
-> A quiet interface can hide a very busy mind.
-
 <details>
-<summary><samp>+ unfold the fragment</samp></summary>
+<summary><b>04</b>&nbsp; / &nbsp;Can the result be explained?</summary>
 
 <br />
 
-I like things that reveal themselves slowly.
+An output becomes more useful when its inputs and assumptions are recoverable.
 
-A small detail that turns out to matter. A pattern hiding inside noise. A system whose simplicity took work.
+For a transformation, a model, or a business rule, I find these questions useful:
 
-This page follows the same idea.
-
-<details>
-<summary><samp>+ inspect the margin</samp></summary>
+| Keep track of | So that |
+| :--- | :--- |
+| Input and context | The result can be interpreted. |
+| Relevant version | A change can be traced. |
+| Assumptions | The limits are visible. |
+| An example that failed | The next iteration has something concrete to improve. |
 
 <br />
-
-**Fragment I**
-
-`46`
-
-Keep it if you like. There are five more.
 
 </details>
 
-<br />
-
-[Next record →](#02--the-mechanism)
-
-</details>
-
-## 02 / the mechanism
-
-> The interesting question is usually one layer deeper.
-
 <details>
-<summary><samp>+ open the casing</samp></summary>
+<summary><b>05</b>&nbsp; / &nbsp;What can be removed?</summary>
 
 <br />
 
-```python
-while curious:
-    observe()
-    question()
-    build()
-    reconsider()
-```
+An abstraction earns its place when it makes the next change easier to understand.
 
-A sketch of a habit, not an executable program.
-
-I enjoy the moment when something stops being mysterious because you finally understand it — and the next mystery becomes visible.
-
-<details>
-<summary><samp>+ look behind the note</samp></summary>
-
-<br />
-
-**Fragment II**
-
-`4f`
-
-</details>
-
-<br />
-
-[Next record →](#03--the-missing-page)
-
-</details>
-
-## 03 / the missing page
-
-> Some context stays outside the frame.
-
-<details>
-<summary><samp>+ examine the omission</samp></summary>
-
-<br />
-
-No timeline here. No inventory of every tool I have touched.
-
-I would rather let the work collect its own annotations.
-
-What is public is enough to begin a conversation. The rest can wait for a good question.
-
-<details>
-<summary><samp>+ turn the page</samp></summary>
-
-<br />
-
-**Fragment III**
-
-`4c`
-
-An empty space can be intentional.
-
-</details>
-
-<br />
-
-[Next record →](#04--the-echo)
-
-</details>
-
-## 04 / the echo
-
-> Repetition is only boring until something changes.
-
-<details>
-<summary><samp>+ listen again</samp></summary>
-
-<br />
+Sometimes the best improvement is deleting a layer, making an implicit dependency explicit, or giving one component a smaller job.
 
 ```diff
-- it worked once
-+ I understand why it worked
+- another special case
++ a clearer boundary
 ```
 
-There is a satisfying distance between those two statements.
-
-That distance is where I tend to spend my time.
-
-<details>
-<summary><samp>+ listen once more</samp></summary>
-
 <br />
-
-**Fragment IV**
-
-`4c`
-
-Yes, you have seen this value before.
 
 </details>
 
 <br />
 
-[Next record →](#05--the-passenger)
+## 03 / questions
 
-</details>
+Some topics are more interesting as questions than as labels.
 
-## 05 / the passenger
+<table>
+<tr>
+<td width="50%" valign="top">
 
-> Some names belong to stories still being written.
+**Systems**
 
-<details>
-<summary><samp>+ read the unsigned note</samp></summary>
+Where should state live?<br />
+What should happen out of order?<br />
+How does a service recover?
 
-<br />
+</td>
+<td width="50%" valign="top">
 
-There is a name in the margins.
+**Data**
 
-**enzo.**
+What did the input leave out?<br />
+Which assumptions changed?<br />
+Can the conclusion be reproduced?
 
-For now, that is the whole entry.
+</td>
+</tr>
+<tr>
+<td valign="top">
 
-<details>
-<summary><samp>+ check the reverse side</samp></summary>
+**Intelligence**
 
-<br />
+What context does the model need?<br />
+Where should uncertainty remain visible?<br />
+How is usefulness evaluated?
 
-**Fragment V**
+</td>
+<td valign="top">
 
-`4f`
+**Craft**
 
-The reference is deliberate. The details are elsewhere.
+Can this be simpler?<br />
+Will the next person understand it?<br />
+What happens when it fails?
 
-</details>
-
-<br />
-
-[Next record →](#06--the-loose-thread)
-
-</details>
-
-## 06 / the loose thread
-
-> You can leave a question open without losing the thread.
-
-<details>
-<summary><samp>+ pull gently</samp></summary>
-
-<br />
-
-If you opened every margin, you have six bytes.
-
-Read them in record order. They are ordinary hexadecimal character codes; no encryption, no hidden service.
-
-<details>
-<summary><samp>+ collect the final fragment</samp></summary>
+</td>
+</tr>
+</table>
 
 <br />
 
-**Fragment VI**
+## 04 / elsewhere
 
-`57`
+The repositories hold the implementation details.
 
-</details>
+[Browse code](https://github.com/yalcinsabancelebi?tab=repositories)&nbsp; · &nbsp;[Portfolio](https://yalcinsabancelebi.github.io)&nbsp; · &nbsp;[LinkedIn](https://www.linkedin.com/in/yalcinsabancelebi)
 
 <br />
-
-[Take the collected fragments to the decoder →](#the-decoder)
-
-</details>
 
 ---
 
-## the decoder
-
-<details>
-<summary><kbd>HINT / one byte, one letter</kbd></summary>
-
-<br />
-
-`0x41` is `A` in ASCII.
-
-Apply the same rule to the six fragments. Their order matters.
-
-</details>
-
-<details>
-<summary><kbd>CHECK / reveal the collected sequence</kbd></summary>
-
-<br />
-
-```text
-46 4f 4c 4c 4f 57
-```
-
-</details>
-
-<details>
-<summary><kbd>DECODE / reveal the answer</kbd></summary>
-
-<br />
-
-## FOLLOW
-
-You followed a small trail through a plain text file.
-
-No animation. Just a reason to keep looking.
-
-**That was the mechanism.**
-
-[There is one last note ↓](#the-last-note)
-
-</details>
-
-<br />
-
-## the shortcut
-
-Not every visitor wants a puzzle.
-
-**I write code, follow difficult questions, and care about the details that make things hold together.**
-
-The repositories are the useful part. This page is the doorway.
-
-[Explore the repositories ↗](https://github.com/yalcinsabancelebi?tab=repositories)
-
-<br />
-
-## the last note
-
-<details>
-<summary><samp>+ found beneath the archive</samp></summary>
-
-<br />
-
-A profile is always a compression.
-
-This one keeps the curiosity and leaves most of the biography out.
-
-If something here felt familiar, we probably have something to talk about.
-
-</details>
-
-<br />
-
-## the return address
-
-<div align="center">
-
-<br />
-
-<a href="https://github.com/yalcinsabancelebi?tab=repositories"><kbd>inspect the work ↗</kbd></a>&nbsp;&nbsp;
-<a href="https://www.linkedin.com/in/yalcinsabancelebi"><kbd>start a conversation ↗</kbd></a>
-
-<br /><br />
-
-<sub><code>END OF PUBLIC FRAGMENT</code></sub>
-
-<br />
-
-[return to the threshold ↑](#the-threshold)
-
-<br />
-
-<sub>the signal was left on intentionally.</sub>
-
+<div align="right">
+<sub><a href="#readme">↑ back to top</a>&nbsp;&nbsp; / &nbsp;&nbsp;<code>y4lc1n</code></sub>
 </div>
