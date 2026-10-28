@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/enzo-dossier.svg" width="100%" alt="ENZO — Yalçın Şabançelebi. Backend developer based in Istanbul. Python, FastAPI, Azure and real-time systems." />
+  <img src="./enzo-dossier.svg" width="100%" alt="ENZO — Yalçın Şabançelebi. Backend developer based in Istanbul. Python, FastAPI, Azure and real-time systems." />
 </p>
 
 <p align="center">
